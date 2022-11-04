@@ -14,7 +14,7 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 
-FRAME_RATE = 12
+FRAME_RATE = 5
 MAX_X = 900
 MAX_Y = 600
 MIN_Y = 0
@@ -43,7 +43,7 @@ def main():
     
     # create the player
     x = int(MAX_X / 2)
-    y = int(MAX_Y - 30)
+    y = int(MAX_Y - CELL_SIZE)
     position = Point(x, y)
 
     player = Actor()
@@ -81,6 +81,7 @@ def main():
         stone.set_font_size(FONT_SIZE)
         stone.set_color(color)
         stone.set_position(position)
+        stone.set_velocity(Point(0, 1).scale(CELL_SIZE))
         stone.set_message(message)
         cast.add_actor("stones", stone)
     

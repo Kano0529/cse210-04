@@ -22,6 +22,7 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
+DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 CAPTION = "GREED"
 WHITE = Color(255, 255, 255)
 DEFAULT_STONES = 40

@@ -33,3 +33,8 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add your name and email here
+authors
+-	Seth Godoy (u443447760@byui.edu)
+-	Kano Bailey (bai21019@byui.edu)
+-	Clementine (clementineiradu365@gmail.com)
+-	Jordan Bell (bel21035@byui.edu)

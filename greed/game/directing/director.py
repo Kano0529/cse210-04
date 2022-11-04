@@ -58,6 +58,7 @@ class Director:
         player.move_next(max_x, max_y)
         
         for stone in stones:
+            stone.move_next(max_x, max_y)
             if player.get_position().equals(stone.get_position()):
                 if stone == "*":
                     score += 1

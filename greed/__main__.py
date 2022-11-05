@@ -1,4 +1,4 @@
-import os
+
 import random
 
 from game.casting.actor import Actor
@@ -22,7 +22,6 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 CAPTION = "GREED"
 WHITE = Color(255, 255, 255)
 DEFAULT_STONES = 40
@@ -53,26 +52,31 @@ def main():
     player.set_position(position)
     cast.add_actor("players", player)
     
-    # create the artifacts
+    # create stones
     
     for n in range(DEFAULT_STONES):
         stones_characters = ["*", "o"]
         text = random.choice(stones_characters)
+
+        # text messages for gems and stones
         if text == "*":
             message = "You got a gem!"
         else:
             message = "Oh no thats a rock!"
 
+        # position 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
+        # color 
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
         
+        # setting the stones and messages
         stone = Stones()
         stone.set_text(text)
         stone.set_font_size(FONT_SIZE)

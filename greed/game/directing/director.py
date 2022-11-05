@@ -17,6 +17,7 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
+        self.score = 0
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -50,9 +51,8 @@ class Director:
         banner = cast.get_first_actor("banners")
         player = cast.get_first_actor("players")
         stones = cast.get_actors("stones")
-        score = 0
 
-        banner.set_text(f"SCORE: {score}")
+        banner.set_text(f"SCORE: {self.score}")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         player.move_next(max_x, max_y)
@@ -60,16 +60,16 @@ class Director:
         for stone in stones:
             stone.move_next(max_x, max_y)
             if player.get_position().equals(stone.get_position()):
-                if stone == "*":
-                    score += 1
+                if stone.get_text() == "*":
+                    self.score += 1
                     message = stone.get_message()
                     banner.set_text(message)
-                    return score
+                    return self.score
                 else:
-                    score -= 1
+                    self.score -= 1
                     message = stone.get_message()
                     banner.set_text(message)
-                    return score
+                    return self.score
                  
            
         
